@@ -1,0 +1,323 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B38DB1461C84C998003E0FE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DB1451C84C998003E0FE4 /* AppDelegate.m */; };
+		B38DB1491C84C998003E0FE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DB1481C84C998003E0FE4 /* main.m */; };
+		B38DB14B1C84C998003E0FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B38DB14A1C84C998003E0FE4 /* Assets.xcassets */; };
+		B38DB14E1C84C998003E0FE4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B38DB14C1C84C998003E0FE4 /* MainMenu.xib */; };
+		B38DB15B1C84CA77003E0FE4 /* APSL.txt in Resources */ = {isa = PBXBuildFile; fileRef = B38DB1561C84CA77003E0FE4 /* APSL.txt */; };
+		B38DB15C1C84CA77003E0FE4 /* SMCInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DB1581C84CA77003E0FE4 /* SMCInterface.m */; };
+		B38DB15D1C84CA77003E0FE4 /* SMCSensors.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DB15A1C84CA77003E0FE4 /* SMCSensors.m */; };
+		B38DB1681C84CCED003E0FE4 /* NSMenuItem Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DB1671C84CCED003E0FE4 /* NSMenuItem Additions.m */; };
+		B38DB1701C84CF44003E0FE4 /* Profiles in Resources */ = {isa = PBXBuildFile; fileRef = B38DB16F1C84CF44003E0FE4 /* Profiles */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B38DB1411C84C998003E0FE4 /* SMCSense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMCSense.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B38DB1441C84C998003E0FE4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B38DB1451C84C998003E0FE4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B38DB1481C84C998003E0FE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B38DB14A1C84C998003E0FE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B38DB14D1C84C998003E0FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B38DB14F1C84C998003E0FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B38DB1561C84CA77003E0FE4 /* APSL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = APSL.txt; sourceTree = "<group>"; };
+		B38DB1571C84CA77003E0FE4 /* SMCInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCInterface.h; sourceTree = "<group>"; };
+		B38DB1581C84CA77003E0FE4 /* SMCInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCInterface.m; sourceTree = "<group>"; };
+		B38DB1591C84CA77003E0FE4 /* SMCSensors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCSensors.h; sourceTree = "<group>"; };
+		B38DB15A1C84CA77003E0FE4 /* SMCSensors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCSensors.m; sourceTree = "<group>"; };
+		B38DB1661C84CCED003E0FE4 /* NSMenuItem Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMenuItem Additions.h"; sourceTree = "<group>"; };
+		B38DB1671C84CCED003E0FE4 /* NSMenuItem Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMenuItem Additions.m"; sourceTree = "<group>"; };
+		B38DB16F1C84CF44003E0FE4 /* Profiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Profiles; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B38DB13E1C84C998003E0FE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B38DB1381C84C998003E0FE4 = {
+			isa = PBXGroup;
+			children = (
+				B38DB1431C84C998003E0FE4 /* SMCSense */,
+				B38DB1421C84C998003E0FE4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B38DB1421C84C998003E0FE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B38DB1411C84C998003E0FE4 /* SMCSense.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B38DB1431C84C998003E0FE4 /* SMCSense */ = {
+			isa = PBXGroup;
+			children = (
+				B38DB1551C84CA77003E0FE4 /* APSL */,
+				B38DB1441C84C998003E0FE4 /* AppDelegate.h */,
+				B38DB1451C84C998003E0FE4 /* AppDelegate.m */,
+				B38DB1661C84CCED003E0FE4 /* NSMenuItem Additions.h */,
+				B38DB1671C84CCED003E0FE4 /* NSMenuItem Additions.m */,
+				B38DB14A1C84C998003E0FE4 /* Assets.xcassets */,
+				B38DB14C1C84C998003E0FE4 /* MainMenu.xib */,
+				B38DB16F1C84CF44003E0FE4 /* Profiles */,
+				B38DB14F1C84C998003E0FE4 /* Info.plist */,
+				B38DB1471C84C998003E0FE4 /* Supporting Files */,
+			);
+			path = SMCSense;
+			sourceTree = "<group>";
+		};
+		B38DB1471C84C998003E0FE4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B38DB1481C84C998003E0FE4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B38DB1551C84CA77003E0FE4 /* APSL */ = {
+			isa = PBXGroup;
+			children = (
+				B38DB1561C84CA77003E0FE4 /* APSL.txt */,
+				B38DB1571C84CA77003E0FE4 /* SMCInterface.h */,
+				B38DB1581C84CA77003E0FE4 /* SMCInterface.m */,
+				B38DB1591C84CA77003E0FE4 /* SMCSensors.h */,
+				B38DB15A1C84CA77003E0FE4 /* SMCSensors.m */,
+			);
+			path = APSL;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B38DB1401C84C998003E0FE4 /* SMCSense */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B38DB1521C84C998003E0FE4 /* Build configuration list for PBXNativeTarget "SMCSense" */;
+			buildPhases = (
+				B38DB13D1C84C998003E0FE4 /* Sources */,
+				B38DB13E1C84C998003E0FE4 /* Frameworks */,
+				B38DB13F1C84C998003E0FE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SMCSense;
+			productName = SMCSense;
+			productReference = B38DB1411C84C998003E0FE4 /* SMCSense.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B38DB1391C84C998003E0FE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Daniel Borca";
+				TargetAttributes = {
+					B38DB1401C84C998003E0FE4 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = B38DB13C1C84C998003E0FE4 /* Build configuration list for PBXProject "SMCSense" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B38DB1381C84C998003E0FE4;
+			productRefGroup = B38DB1421C84C998003E0FE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B38DB1401C84C998003E0FE4 /* SMCSense */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B38DB13F1C84C998003E0FE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B38DB1701C84CF44003E0FE4 /* Profiles in Resources */,
+				B38DB14B1C84C998003E0FE4 /* Assets.xcassets in Resources */,
+				B38DB14E1C84C998003E0FE4 /* MainMenu.xib in Resources */,
+				B38DB15B1C84CA77003E0FE4 /* APSL.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B38DB13D1C84C998003E0FE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B38DB1491C84C998003E0FE4 /* main.m in Sources */,
+				B38DB15C1C84CA77003E0FE4 /* SMCInterface.m in Sources */,
+				B38DB1461C84C998003E0FE4 /* AppDelegate.m in Sources */,
+				B38DB15D1C84CA77003E0FE4 /* SMCSensors.m in Sources */,
+				B38DB1681C84CCED003E0FE4 /* NSMenuItem Additions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B38DB14C1C84C998003E0FE4 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B38DB14D1C84C998003E0FE4 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B38DB1501C84C998003E0FE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B38DB1511C84C998003E0FE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B38DB1531C84C998003E0FE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SMCSense/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.dborca.SMCSense;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B38DB1541C84C998003E0FE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SMCSense/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.dborca.SMCSense;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B38DB13C1C84C998003E0FE4 /* Build configuration list for PBXProject "SMCSense" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B38DB1501C84C998003E0FE4 /* Debug */,
+				B38DB1511C84C998003E0FE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B38DB1521C84C998003E0FE4 /* Build configuration list for PBXNativeTarget "SMCSense" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B38DB1531C84C998003E0FE4 /* Debug */,
+				B38DB1541C84C998003E0FE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B38DB1391C84C998003E0FE4 /* Project object */;
+}
