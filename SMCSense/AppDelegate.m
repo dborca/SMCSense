@@ -134,6 +134,10 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
 
 	NSDictionary *titleAttributes = [NSDictionary dictionaryWithObjectsAndKeys:menu.font, NSFontAttributeName, [self getTempColor:maxTemp], NSForegroundColorAttributeName, nil];
 	self.statusItem.attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:titleAttributes];
+
+	if (maxTemp > 95) {
+		[[NSSound soundNamed:@"Ping"] play]; // NSBeep();
+	}
 }
 
 - (NSColor *)getTempColor:(float)temperature
