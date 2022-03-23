@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "APSL/SMCSensors.h"
+#import "APSL/XRGAppleSiliconSensorMiner.h"
 #import "NSMenuItem Additions.h"
 #include <sys/sysctl.h>
 
@@ -57,11 +58,17 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
 
 	id key;
 	BOOL showUnknownSensors = TRUE;
-	NSDictionary *values = [self.smcSensors temperatureValuesExtended:showUnknownSensors];
-	NSArray *sortedKeys = [[values allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+	NSDictionary *values = [XRGAppleSiliconSensorMiner sensorData];
+	NSArray *sortedKeys = nil;
 	float maxTemp = -273.16;
 	NSColor *color;
 	bool any;
+
+	if (values == nil) {
+		// maybe switch to https://github.com/hholtmann/smcFanControl.git
+		values = [self.smcSensors temperatureValuesIncludingUnknown:showUnknownSensors];
+	}
+	sortedKeys = [[values allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 
 	any = FALSE;
 	for (key in sortedKeys) {
@@ -73,7 +80,7 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
 		}
 		NSString *humanReadableName = [self getHumanReadableString:key];
 //		NSLog(@"%@: %.1f C\n", humanReadableName, temperature);
-		if (self.isMenuOpen) {
+		if (self.isMenuOpen && temperature >= 20) {
 			color = [self getTempColor:temperature];
 			item = [[NSMenuItem alloc] initWithTitle:humanReadableName action:@selector(doNothing:) keyEquivalent:@""];
 #ifdef NON_SELECTABLE

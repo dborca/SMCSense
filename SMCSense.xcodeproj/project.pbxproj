@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B32998CE27EB8F1A009C4AF3 /* XRGAppleSiliconSensorMiner.m in Sources */ = {isa = PBXBuildFile; fileRef = B32998CD27EB8F1A009C4AF3 /* XRGAppleSiliconSensorMiner.m */; };
+		B3406067283C32A400427E71 /* SMCSensorGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = B3406066283C32A400427E71 /* SMCSensorGroup.m */; };
 		B38DB1461C84C998003E0FE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DB1451C84C998003E0FE4 /* AppDelegate.m */; };
 		B38DB1491C84C998003E0FE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B38DB1481C84C998003E0FE4 /* main.m */; };
 		B38DB14B1C84C998003E0FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B38DB14A1C84C998003E0FE4 /* Assets.xcassets */; };
@@ -19,6 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B32998CA27EB8F1A009C4AF3 /* IOHIDEventTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOHIDEventTypes.h; sourceTree = "<group>"; };
+		B32998CB27EB8F1A009C4AF3 /* AppleHIDUsageTables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleHIDUsageTables.h; sourceTree = "<group>"; };
+		B32998CC27EB8F1A009C4AF3 /* XRGAppleSiliconSensorMiner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XRGAppleSiliconSensorMiner.h; sourceTree = "<group>"; };
+		B32998CD27EB8F1A009C4AF3 /* XRGAppleSiliconSensorMiner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XRGAppleSiliconSensorMiner.m; sourceTree = "<group>"; };
+		B3406065283C32A400427E71 /* SMCSensorGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCSensorGroup.h; sourceTree = "<group>"; };
+		B3406066283C32A400427E71 /* SMCSensorGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCSensorGroup.m; sourceTree = "<group>"; };
 		B38DB1411C84C998003E0FE4 /* SMCSense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMCSense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38DB1441C84C998003E0FE4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B38DB1451C84C998003E0FE4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -91,6 +99,12 @@
 		B38DB1551C84CA77003E0FE4 /* APSL */ = {
 			isa = PBXGroup;
 			children = (
+				B3406065283C32A400427E71 /* SMCSensorGroup.h */,
+				B3406066283C32A400427E71 /* SMCSensorGroup.m */,
+				B32998CB27EB8F1A009C4AF3 /* AppleHIDUsageTables.h */,
+				B32998CA27EB8F1A009C4AF3 /* IOHIDEventTypes.h */,
+				B32998CC27EB8F1A009C4AF3 /* XRGAppleSiliconSensorMiner.h */,
+				B32998CD27EB8F1A009C4AF3 /* XRGAppleSiliconSensorMiner.m */,
 				B38DB1561C84CA77003E0FE4 /* APSL.txt */,
 				B38DB1571C84CA77003E0FE4 /* SMCInterface.h */,
 				B38DB1581C84CA77003E0FE4 /* SMCInterface.m */,
@@ -139,6 +153,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -171,6 +186,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3406067283C32A400427E71 /* SMCSensorGroup.m in Sources */,
+				B32998CE27EB8F1A009C4AF3 /* XRGAppleSiliconSensorMiner.m in Sources */,
 				B38DB1491C84C998003E0FE4 /* main.m in Sources */,
 				B38DB15C1C84CA77003E0FE4 /* SMCInterface.m in Sources */,
 				B38DB1461C84C998003E0FE4 /* AppDelegate.m in Sources */,

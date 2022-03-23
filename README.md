@@ -13,7 +13,7 @@ Finally, some useful info can be found [here](http://www.cocoabuilder.com/archiv
 
 You can build SMCSense with Xcode or from command-line:
 
-    xcodebuild clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+    xcodebuild clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO [-arch <arm64 | x86_64>]
 
 By default, SMCSense refreshes every 10 seconds, you can change this in the defaults using:
 
