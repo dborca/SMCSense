@@ -4,11 +4,38 @@
 <dict>
 	<key>TBXT</key>
 	<string>Battery</string>
-	<key>TC0E</key>
-	<string>CPU 1</string>
-	<key>TC0F</key>
-	<string>CPU 2</string>
 	<key>TCGC</key>
 	<string>PECI GPU</string>
+	<key>TCSA</key>
+	<string>PECI SA</string>
+	<key>TCXC</key>
+	<string>PECI CPU</string>
+	<key>TPCD</key>
+	<string>PCH Die</string>
+
+	<key>TA?P</key>
+	<string>Airflow</string>
+	<key>TB?T</key>
+	<string>Battery</string>
+	<key>TC?C</key>
+	<string>CPU Core \0</string>
+	<key>TC?E</key>
+	<string>CPU (E)</string>
+	<key>TC?F</key>
+	<string>CPU (F)</string>
+	<key>TC?P</key>
+	<string>CPU Proximity</string>
+	<key>TH?A</key>
+	<string>Drive \0 (A)</string>
+	<key>TH?B</key>
+	<string>Drive \0 (B)</string>
+	<key>TH?V</key>
+	<string>Drive \0 (V)</string>
+	<key>Th?H</key>
+	<string>Heatsink</string>
+	<key>TM?P</key>
+	<string>DIMM \0 Proximity</string>
+	<key>Ts?P</key>
+	<string>Palm Rest</string>
 </dict>
 </plist>

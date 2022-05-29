@@ -2,13 +2,95 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+
+<!--
+	https://logi.wiki/index.php/SMC_Sensor_Codes
+	https://github.com/acidanthera/VirtualSMC/blob/master/Docs/SMCSensorKeys.txt
+	https://github.com/xythobuz/JSystemInfoKit/blob/master/SystemInfoKit/JSKSMC.m
+	https://github.com/mikepj/XRG/blob/main/Resources/SMCSensorNames.plist
+
+	TBXT == TB0T (ok)
+	TH0A == TH0a (HDD cooked vs raw)
+	TH0B == TH0b (HDD cooked vs raw)
+	TC1F == TC1f (CPU cooked vs raw)
+	TG0D == TG0F (GPU Die vs Filtered)
+	TaSP == Ta0P (Airflow)
+
+	A single '?' inside key matches a digit [0-9]. If the description string contains
+	a '\' followed by a hex digit, the hex digit is incremented by the matched value;
+	otherwise the matched value is appended to the description:
+		key="XY?Z", string="Something cool" => "XY2Z", "Something cool #2"
+		key="XY?Z", string="Something \0 cool" => "XY1Z", "Something 1 cool"
+		key="XY?Z", string="Something \3 cool" => "XY1Z", "Something 4 cool"
+-->
+
+	<key>TaSP</key>
+	<string>Airflow</string>
 	<key>TBXT</key>
 	<string>Battery</string>
-	<key>TC0E</key>
-	<string>CPU 1</string>
-	<key>TC0F</key>
-	<string>CPU 2</string>
 	<key>TCGC</key>
 	<string>PECI GPU</string>
+	<key>TCMX</key>
+	<string>Max PECI</string>
+	<key>TCSA</key>
+	<string>PECI SA</string>
+	<key>TCXC</key>
+	<string>PECI CPU</string>
+	<key>TPCD</key>
+	<string>PCH Die</string>
+	<key>Ts0S</key>
+	<string>Syntethic Bottom</string>
+	<key>Ts1S</key>
+	<string>Synthetic Top</string>
+	<key>TTLD</key>
+	<string>Thunderbolt Left</string>
+	<key>TTRD</key>
+	<string>Thunderbolt Right</string>
+
+	<key>TA?P</key>
+	<string>Airflow</string>
+	<key>Ta?P</key>
+	<string>Airflow</string>
+	<key>TA?V</key>
+	<string>Ambient</string>
+	<key>TB?T</key>
+	<string>Battery</string>
+	<key>TC?C</key>
+	<string>CPU Core \0</string>
+	<key>TC?E</key>
+	<string>CPU (E)</string>
+	<key>TC?F</key>
+	<string>CPU (F)</string>
+	<key>TC?P</key>
+	<string>CPU Proximity</string>
+	<key>TG?D</key>
+	<string>GPU Die</string>
+	<key>TG?F</key>
+	<string>GPU (F)</string>
+	<key>TG?P</key>
+	<string>GPU Proximity</string>
+	<key>TH?A</key>
+	<string>Drive \0 (A)</string>
+	<key>TH?B</key>
+	<string>Drive \0 (B)</string>
+	<key>TH?C</key>
+	<string>Drive \0 (C)</string>
+	<key>TH?V</key>
+	<string>Drive \0 (V)</string>
+	<key>Th?H</key>
+	<string>Heatsink</string>
+	<key>TM?P</key>
+	<string>DIMM \0 Proximity</string>
+	<key>TM?S</key>
+	<string>DIMM \0</string>
+	<key>TP?P</key>
+	<string>PCH Proximity</string>
+	<key>Ts?P</key>
+	<string>Palm Rest</string>
+	<key>TW?P</key>
+	<string>Wireless Proximity</string>
+
+	<key>TCFC</key>
+	<false/>
 </dict>
 </plist>

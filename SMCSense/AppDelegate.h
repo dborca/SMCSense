@@ -13,7 +13,7 @@
 
 @property (nonatomic, readonly) NSStatusItem *statusItem;
 @property (nonatomic, readonly) SMCSensors *smcSensors;
-@property (nonatomic, readonly) NSDictionary *profile;
+@property (nonatomic, readonly) NSMutableDictionary *profile;
 @property (atomic, readonly) BOOL isMenuOpen;
 
 @end

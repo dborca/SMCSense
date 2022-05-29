@@ -19,7 +19,7 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
 
 @property (nonatomic, strong, readwrite) NSStatusItem *statusItem;
 @property (nonatomic, strong, readwrite) SMCSensors *smcSensors;
-@property (nonatomic, strong, readwrite) NSDictionary *profile;
+@property (nonatomic, strong, readwrite) NSMutableDictionary *profile;
 @property (atomic, readwrite) BOOL isMenuOpen;
 
 @end
@@ -34,13 +34,13 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
     self.smcSensors = [[SMCSensors alloc] init];
     self.profile = [self loadProfile];
 
+    NSMenu *menu = [[NSMenu alloc] init];
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    self.statusItem.menu = [[NSMenu alloc] init];
-    [self.statusItem.menu setDelegate:self];
+    self.statusItem.menu = menu;
+    menu.delegate = self;
 #ifdef NON_SELECTABLE
-    [self.statusItem.menu setAutoenablesItems:NO];
+    [menu setAutoenablesItems:NO];
 #endif
-    [self.statusItem.menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@"Q"];
     self.statusItem.button.image = [NSImage imageNamed:@"StatusItem-Image"];
 
     [self updateStatusItemMenu:[NSApplication sharedApplication]];
@@ -79,6 +79,9 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
 			continue;
 		}
 		NSString *humanReadableName = [self getHumanReadableString:key];
+		if (![humanReadableName isKindOfClass:[NSString class]]) {
+			continue;
+		}
 //		NSLog(@"%@: %.1f C\n", humanReadableName, temperature);
 		if (self.isMenuOpen && temperature >= 20) {
 			color = [self getTempColor:temperature];
@@ -190,27 +193,74 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
     return str;
 }
 
-- (NSDictionary *)loadProfile
+- (NSMutableDictionary *)loadProfile
 {
     NSString *config;
     NSString *machine = [self sysctlByName:"hw.model"];
     if (machine) {
         config = [[NSBundle mainBundle] pathForResource:machine ofType:@"plist" inDirectory:@"Profiles"];
         if (config) {
-            NSDictionary *profile = [NSDictionary dictionaryWithContentsOfFile:config];
+            NSMutableDictionary *profile = [NSMutableDictionary dictionaryWithContentsOfFile:config];
             if (profile) {
                 return profile;
             }
         }
     }
     config = [[NSBundle mainBundle] pathForResource:@"Default" ofType:@"plist" inDirectory:@"Profiles"];
-    return config ? [NSDictionary dictionaryWithContentsOfFile:config] : nil;
+    return config ? [NSMutableDictionary dictionaryWithContentsOfFile:config] : nil;
 }
 
 - (NSString *)getHumanReadableString:(NSString *)key
 {
-    NSString *val = self.profile ? self.profile[key] : nil;
-    return val ?: [self.smcSensors humanReadableNameForKey:key];
+    if (self.profile) {
+        const char *k;
+        NSString *val = self.profile[key];
+        if (val) {
+            return val;
+        }
+        k = [key UTF8String];
+        for (NSString *it in self.profile.allKeys) {
+            ssize_t i, j;
+            const char *p = [it UTF8String];
+            for (i = 0, j = -1; ; i++) {
+                if (p[i] != k[i]) {
+                    if (p[i] != '?' || !isdigit(k[i]) || j != -1) {
+                        break;
+                    }
+                    j = i;
+                }
+                if (p[i] == '\0') {
+                    const char *v;
+                    char buf[1024];
+                    int n = k[j] - '0';
+                    int replacements = 0;
+                    val = self.profile[it];
+                    if (![val isKindOfClass:[NSString class]]) {
+                        return val;
+                    }
+                    v = [val UTF8String];
+                    for (i = 0, j = 0; v[i] && j < 1000; i++) {
+                        if (v[i] == '\\' && isxdigit(v[i + 1])) {
+                            int c = v[++i];
+                            if (n + c > '9' && c <= '9') {
+                                c += 'A' - '9' - 1;
+                            }
+                            buf[j++] = n + c;
+                            replacements++;
+                            continue;
+                        }
+                        buf[j++] = v[i];
+                    }
+                    buf[j] = '\0';
+                    if (replacements == 0) {
+                        sprintf(&buf[j], " #%d", n);
+                    }
+                    return self.profile[key] = [NSString stringWithUTF8String:buf];
+                }
+            }
+        }
+    }
+    return [self.smcSensors humanReadableNameForKey:key];
 }
 
 #pragma mark - NSMenuDelegate
