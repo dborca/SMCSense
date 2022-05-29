@@ -18,7 +18,6 @@ You can build SMCSense with Xcode or from command-line:
 By default, SMCSense refreshes every 10 seconds, you can change this in the defaults using:
 
     defaults write org.dborca.SMCSense SMCSenseRefresh 5
-    defaults write org.dborca.SMCSense SMCSenseShowFan false
 
 ## License
 

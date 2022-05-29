@@ -13,7 +13,6 @@
 #include <sys/sysctl.h>
 
 NSString * const kSMCSenseRefresh = @"SMCSenseRefresh";
-NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
 
 @interface AppDelegate ()
 
@@ -21,6 +20,8 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
 @property (nonatomic, strong, readwrite) SMCSensors *smcSensors;
 @property (nonatomic, strong, readwrite) NSMutableDictionary *profile;
 @property (atomic, readwrite) BOOL isMenuOpen;
+@property (nonatomic, strong, readwrite) NSButton *tButton;
+@property (nonatomic, strong, readwrite) NSButton *fButton;
 
 @end
 
@@ -29,7 +30,6 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{kSMCSenseRefresh: @10.0}];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:@{kSMCSenseShowFan: @TRUE}];
     
     self.smcSensors = [[SMCSensors alloc] init];
     self.profile = [self loadProfile];
@@ -43,6 +43,26 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
 #endif
     self.statusItem.button.image = [NSImage imageNamed:@"StatusItem-Image"];
 
+    NSButton *button;
+    NSMenuItem *item = [[NSMenuItem alloc] init];
+    NSView *view = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 150, 20)];
+    view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+
+    button = self.tButton = [NSButton checkboxWithTitle:@"Temp" target:self action:@selector(doSomething:)];
+    button.frame = NSMakeRect(20, 0, 60, 20);
+    button.allowsMixedState = YES;
+    button.state = NSControlStateValueMixed;
+    [view addSubview:button];
+
+    button = self.fButton = [NSButton checkboxWithTitle:@"Fan" target:self action:@selector(doSomething:)];
+    button.frame = NSMakeRect(85, 0, 45, 20);
+    button.state = NSControlStateValueOn;
+    [view addSubview:button];
+
+    item.view = view;
+    [menu addItem:item];
+    [menu addItem:[NSMenuItem separatorItem]];
+
     [self updateStatusItemMenu:[NSApplication sharedApplication]];
     
     NSTimeInterval timeInterval = [[NSUserDefaults standardUserDefaults] doubleForKey:kSMCSenseRefresh];
@@ -54,17 +74,26 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
 {
 	NSMenuItem *item;
 	NSMenu *menu = self.statusItem.menu;
-	[menu removeAllItems];
 
 	id key;
 	BOOL showUnknownSensors = TRUE;
-	NSDictionary *values = [XRGAppleSiliconSensorMiner sensorData];
+	NSDictionary *values = nil;
 	NSArray *sortedKeys = nil;
 	float maxTemp = -273.16;
 	NSColor *color;
 	bool any;
 
+	for (NSInteger i = menu.numberOfItems - 1; i >= 2; i--) {
+		[menu removeItemAtIndex:i];
+	}
+
+	if (self.tButton.state != NSControlStateValueOn) {
+		values = [XRGAppleSiliconSensorMiner sensorData];
+	}
 	if (values == nil) {
+		if (self.tButton.state == NSControlStateValueMixed) {
+			self.tButton.state = NSControlStateValueOn;
+		}
 		// maybe switch to https://github.com/hholtmann/smcFanControl.git
 		values = [self.smcSensors temperatureValuesIncludingUnknown:showUnknownSensors];
 	}
@@ -83,7 +112,7 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
 			continue;
 		}
 //		NSLog(@"%@: %.1f C\n", humanReadableName, temperature);
-		if (self.isMenuOpen && temperature >= 20) {
+		if (self.isMenuOpen && self.tButton.state != NSControlStateValueOff && temperature >= 20) {
 			color = [self getTempColor:temperature];
 			item = [[NSMenuItem alloc] initWithTitle:humanReadableName action:@selector(doNothing:) keyEquivalent:@""];
 #ifdef NON_SELECTABLE
@@ -102,7 +131,7 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
 		[menu addItem:[NSMenuItem separatorItem]];
 	}
 
-	if (self.isMenuOpen && [[NSUserDefaults standardUserDefaults] boolForKey:kSMCSenseShowFan]) {
+	if (self.isMenuOpen && self.fButton.state != NSControlStateValueOff) {
 		values = [self.smcSensors fanValues];
 		sortedKeys = [[values allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 		any = FALSE;
@@ -280,6 +309,13 @@ NSString * const kSMCSenseShowFan = @"SMCSenseShowFan";
 
 - (void)doNothing:(id)sender
 {
+}
+
+#pragma mark - NSButton actions
+
+- (void)doSomething:(id)sender
+{
+    [self updateStatusItemMenu:self];
 }
 
 @end
