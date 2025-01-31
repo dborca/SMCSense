@@ -51,7 +51,7 @@ NSString * const kSMCSenseRefresh = @"SMCSenseRefresh";
     button = self.tButton = [NSButton checkboxWithTitle:@"Temp" target:self action:@selector(doSomething:)];
     button.frame = NSMakeRect(20, 0, 60, 20);
     button.allowsMixedState = YES;
-    button.state = NSControlStateValueMixed;
+    button.state = NSControlStateValueOff;
     [view addSubview:button];
 
     button = self.fButton = [NSButton checkboxWithTitle:@"Fan" target:self action:@selector(doSomething:)];
@@ -87,13 +87,13 @@ NSString * const kSMCSenseRefresh = @"SMCSenseRefresh";
 		[menu removeItemAtIndex:i];
 	}
 
-	if (self.tButton.state != NSControlStateValueOn) {
+	if (self.tButton.state == NSControlStateValueMixed) {
 		values = [XRGAppleSiliconSensorMiner sensorData];
-	}
-	if (values == nil) {
-		if (self.tButton.state == NSControlStateValueMixed) {
+		if (values == nil) {
 			self.tButton.state = NSControlStateValueOn;
 		}
+	}
+	if (values == nil) {
 		// maybe switch to https://github.com/hholtmann/smcFanControl.git
 		values = [self.smcSensors temperatureValuesIncludingUnknown:showUnknownSensors];
 	}

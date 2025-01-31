@@ -1,4 +1,4 @@
-# SMCSense 1.0
+# SMCSense 1.1
 
 No bells and whistles SMC Monitor.  No graphs, no history, no network, no disk, no overhead.
 
